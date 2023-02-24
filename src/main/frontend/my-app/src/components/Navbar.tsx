@@ -14,10 +14,10 @@ const Navbar = () => {
             Home
           </Link>
           <Link
-            to="/dummy"
+            to="/things"
             className="text-white mr-10 no-underline transition duration-300 hover:scale-125"
           >
-            Dummy
+            Things
           </Link>
         </div>
 
