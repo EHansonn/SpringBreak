@@ -3,11 +3,13 @@ So far I have my postgres db running inside docker and the java backend is setup
 
 ## docker
 
-docker-compose -f docker-compose-pg-only.yml up  
+```
+docker-compose -f docker-compose-pg-only.yml up
 docker-compose -f docker-compose-pg-only.yml down --volumes
+```
 
 ## dev server
 
 cd src/main/frontend/my-app/ <br />
 
-yarn run start
+`yarn run start`
