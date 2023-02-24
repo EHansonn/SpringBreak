@@ -7,7 +7,7 @@ interface Props {
 }
 const Layout = () => {
   return (
-    <div className="flex flex-col  h-screen relative bg-slate-800 text-white">
+    <div className="flex flex-col h-screen relative overflow-hidden bg-slate-800 text-white">
       <Navbar></Navbar>
       <main className="flex-1 flex flex-col p-4 max-h-[calc(100%-50px)]">
         <Outlet></Outlet>
