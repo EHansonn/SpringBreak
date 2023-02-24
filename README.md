@@ -6,7 +6,7 @@ docker-compose -f docker-compose-pg-only.yml down --volumes
 
 dev server
 cd src/main/frontend/my-app/
-yarn run
+yarn run start
 
 # Getting Started with Create React App
 
