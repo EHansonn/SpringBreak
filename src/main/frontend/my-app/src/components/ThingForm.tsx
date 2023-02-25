@@ -11,7 +11,7 @@ const ThingForm = (triggerRe: any) => {
 
   const [form] = Form.useForm();
   const onFinish = async (values: any) => {
-    console.log(values);
+    //console.log(values);
     const response = await fetch("http://localhost:8080/thing/add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -21,7 +21,7 @@ const ThingForm = (triggerRe: any) => {
         testdata: values.testdata,
       }),
     });
-    console.log(response);
+    //console.log(response);
     triggerRe.triggerRe();
     onFill();
   };
