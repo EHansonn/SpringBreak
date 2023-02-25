@@ -1,16 +1,12 @@
 import { Button, Modal, Form, Input, Radio, Select } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import React, { useEffect, useState } from "react";
+import ThingForm from "../components/ThingForm";
 
 export default function Things() {
   const [things, setThings] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
-  };
 
   useEffect(() => {
     const loadData = async () => {
@@ -33,20 +29,23 @@ export default function Things() {
   }, []);
 
   return (
-    <h1 className="flex flex-col space-y-3 items-center overflow-auto sm:mx-0.5 lg:mx-0.5">
-      {things.map((thing) => (
-        <div
-          className=" bg-red-700 flex flex-col  object-contain text-center w-1/2 py-2 inline-block  sm:px-6 lg:px-8 text-sm font-medium text-left "
-          key={thing?.id}
-        >
-          <div>Id: {thing.id}</div>
-          <div>Name: {thing.name}</div>
-          <div>Address: {thing.address}</div>
-          <div>Testdata: {thing.testdata}</div>
-        </div>
-      ))}
-      {error && <div>error</div>}
-      {loading && <div>loading</div>}
-    </h1>
+    <>
+      <ThingForm></ThingForm>
+      <h1 className="flex flex-col space-y-3 items-center overflow-auto sm:mx-0.5 lg:mx-0.5">
+        {things.map((thing) => (
+          <div
+            className=" bg-red-700 flex flex-col  object-contain text-center w-1/2 py-2 inline-block  sm:px-6 lg:px-8 text-sm font-medium text-left "
+            key={thing?.id}
+          >
+            <div>Id: {thing.id}</div>
+            <div>Name: {thing.name}</div>
+            <div>Address: {thing.address}</div>
+            <div>Testdata: {thing.testdata}</div>
+          </div>
+        ))}
+        {error && <div>error</div>}
+        {loading && <div>loading</div>}
+      </h1>
+    </>
   );
 }
