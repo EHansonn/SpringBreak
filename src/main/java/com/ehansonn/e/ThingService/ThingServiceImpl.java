@@ -17,6 +17,11 @@ public class ThingServiceImpl implements ThingService {
     public Thing saveThing(Thing thing) {
         return thingRepository.save(thing);
     }
+
+    @Override
+    public void deleteThing(Integer id) {
+        thingRepository.deleteById(id);
+    }
     @Override
     public List<Thing> getAllThings() {
         return thingRepository.findAll();

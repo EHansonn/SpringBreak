@@ -20,6 +20,11 @@ public class ThingController {
         return "New thing is added";
     }
 
+    @DeleteMapping(value="/id/{id}")
+    public void delete(@PathVariable("id")  Integer id){
+        thingService.deleteThing(id);
+    }
+
     @GetMapping("/getAll")
     public List<Thing> list() {
         return thingService.getAllThings();
