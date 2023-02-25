@@ -1,6 +1,6 @@
 import { Button, Modal, Form, Input, Radio, Select } from "antd";
 
-const ThingForm = () => {
+const ThingForm = (triggerRe: any) => {
   const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },
@@ -22,6 +22,7 @@ const ThingForm = () => {
       }),
     });
     console.log(response);
+    triggerRe.triggerRe();
   };
 
   const onReset = () => {
