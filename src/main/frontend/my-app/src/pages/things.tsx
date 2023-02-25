@@ -5,27 +5,28 @@ import ThingForm from "../components/ThingForm";
 
 export default function Things() {
   const [things, setThings] = useState<any[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [updated, setUpdated] = useState(false);
   const [error, setError] = useState(null);
 
   const triggerRe = () => {
-    setLoading(true);
-    console.log("hit");
+    setUpdated((updated) => !updated);
   };
 
   useEffect(() => {
     //error handling is for losers
-    setLoading(true);
-    const loadData = async () => {
-      const response = await fetch("http://localhost:8080/thing/getAll");
-      const data = await response.json();
-      setThings(data);
-      console.log(data);
-    };
-    setLoading(false);
+    try {
+      const loadData = async () => {
+        const response = await fetch("http://localhost:8080/thing/getAll");
+        const data = await response.json();
+        setThings(data);
+        console.log(data);
+      };
 
-    loadData();
-  }, [loading]);
+      loadData();
+    } catch (e) {
+      console.log(e);
+    }
+  }, [updated]);
 
   return (
     <>
@@ -40,32 +41,36 @@ export default function Things() {
             <div>Name: {thing.name}</div>
             <div>Address: {thing.address}</div>
             <div>Testdata: {thing.testdata}</div>
-            <Button
-              type="primary"
-              danger
-              onClick={() => {
-                setLoading(true);
-                const loadData = async () => {
-                  const response = await fetch(
-                    `http://localhost:8080/thing/id/${thing.id}`,
-                    {
-                      method: "DELETE",
-                      headers: {
-                        "Content-Type": "application/json",
-                      },
-                    }
-                  );
-                  triggerRe();
-                };
-                loadData();
-              }}
-            >
-              Delete
-            </Button>
+            <div>
+              <Button
+                type="primary"
+                className="w-1/2 "
+                danger
+                onClick={() => {
+                  //setUpdated(true);
+                  const loadData = async () => {
+                    const response = await fetch(
+                      `http://localhost:8080/thing/id/${thing.id}`,
+                      {
+                        method: "DELETE",
+                        headers: {
+                          "Content-Type": "application/json",
+                        },
+                      }
+                    );
+                    //console.log(response);
+                    triggerRe();
+                  };
+                  loadData();
+                }}
+              >
+                Delete
+              </Button>
+            </div>
           </div>
         ))}
         {error && <div>error</div>}
-        {loading && <div>loading</div>}
+        {updated && <div>loading</div>}
       </h1>
     </>
   );
