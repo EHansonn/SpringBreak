@@ -1,12 +1,11 @@
-import { Button, Modal, Form, Input, Radio, Select } from "antd";
-import TextArea from "antd/es/input/TextArea";
+import { Button } from "antd";
 import React, { useEffect, useState } from "react";
 import ThingForm from "../components/ThingForm";
 
 export default function Things() {
   const [things, setThings] = useState<any[]>([]);
   const [updated, setUpdated] = useState(false);
-  const [error, setError] = useState(null);
+  //const [error, setError] = useState(null);
 
   const triggerRe = () => {
     setUpdated((updated) => !updated);
@@ -69,8 +68,6 @@ export default function Things() {
             </div>
           </div>
         ))}
-        {error && <div>error</div>}
-        {updated && <div>loading</div>}
       </h1>
     </>
   );
