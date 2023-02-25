@@ -29,6 +29,13 @@ const ThingForm = (triggerRe: any) => {
     form.resetFields();
   };
 
+  const onFill = () => {
+    form.setFieldsValue({
+      name: `${Math.trunc(Math.random() * 1000000)}`,
+      address: `${Math.trunc(Math.random() * 1000000)}`,
+      testdata: `${Math.trunc(Math.random() * 1000000)}`,
+    });
+  };
   return (
     <div className="flex flex-col space-y-3 items-center   ">
       <Form
@@ -58,6 +65,9 @@ const ThingForm = (triggerRe: any) => {
           </Button>
           <Button htmlType="button" onClick={onReset}>
             Reset
+          </Button>
+          <Button type="link" htmlType="button" onClick={onFill}>
+            Random
           </Button>
         </Form.Item>
       </Form>
