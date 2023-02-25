@@ -30,10 +30,10 @@ export default function Things() {
   return (
     <>
       <ThingForm triggerRe={triggerRe}></ThingForm>
-      <h1 className="flex flex-col space-y-3 items-center overflow-auto sm:mx-0.5 lg:mx-0.5">
+      <h1 className="flex flex-col space-y-3 items-center overflow-auto sm:mx-0.5 lg:mx-0.5 ">
         {things.map((thing) => (
           <div
-            className=" bg-red-700 flex flex-col  object-contain text-center w-1/2 py-2 inline-block  sm:px-6 lg:px-8 text-sm font-medium text-left "
+            className=" bg-red-700 flex flex-col  object-contain text-center w-1/2 py-2 inline-block rounded-lg sm:px-6 lg:px-8 text-sm font-medium text-left "
             key={thing?.id}
           >
             <div>Id: {thing.id}</div>

@@ -23,6 +23,7 @@ const ThingForm = (triggerRe: any) => {
     });
     console.log(response);
     triggerRe.triggerRe();
+    onFill();
   };
 
   const onReset = () => {
@@ -37,9 +38,9 @@ const ThingForm = (triggerRe: any) => {
     });
   };
   return (
-    <div className="flex flex-col space-y-3 items-center   ">
+    <div className="flex flex-col space-y-3 items-center  ">
       <Form
-        className=""
+        className="bg-red-200 rounded-lg px-4 py-4 "
         {...layout}
         form={form}
         name="control-hooks"
