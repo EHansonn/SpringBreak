@@ -1,7 +1,7 @@
 version: "2.15.1"
 services:
   db:
-    image: postgres:14.1-alpine
+    image: postgres:latest
     restart: always
     environment:
       - POSTGRES_USER=postgres
