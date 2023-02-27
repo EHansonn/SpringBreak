@@ -1,4 +1,4 @@
-import { Button, Form, Input, } from "antd";
+import { Button, Form, Input } from "antd";
 
 const ThingForm = (triggerRe: any) => {
   const layout = {
@@ -17,7 +17,6 @@ const ThingForm = (triggerRe: any) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: values.name,
-        address: values.address,
         testdata: values.testdata,
       }),
     });
@@ -48,9 +47,6 @@ const ThingForm = (triggerRe: any) => {
         style={{ maxWidth: 600 }}
       >
         <Form.Item name="name" label="Name" rules={[{ required: true }]}>
-          <Input />
-        </Form.Item>
-        <Form.Item name="address" label="Address" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
         <Form.Item

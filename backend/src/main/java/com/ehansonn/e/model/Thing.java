@@ -11,8 +11,6 @@ public class Thing {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String address;
-
     private String testdata;
 
     public Thing() {
@@ -32,14 +30,6 @@ public class Thing {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getTestdata() {

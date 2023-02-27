@@ -12,7 +12,6 @@ export default function Things() {
   };
 
   useEffect(() => {
-    //error handling is for losers
     try {
       const loadData = async () => {
         const response = await fetch("http://localhost:8080/thing/getAll");
@@ -20,7 +19,6 @@ export default function Things() {
         setThings(data);
         console.log(data);
       };
-
       loadData();
     } catch (e) {
       console.log(e);
@@ -38,7 +36,6 @@ export default function Things() {
           >
             <div>Id: {thing.id}</div>
             <div>Name: {thing.name}</div>
-            <div>Address: {thing.address}</div>
             <div>Testdata: {thing.testdata}</div>
             <div>
               <Button
@@ -46,7 +43,6 @@ export default function Things() {
                 className="w-1/2 "
                 danger
                 onClick={() => {
-                  //setUpdated(true);
                   const loadData = async () => {
                     const response = await fetch(
                       `http://localhost:8080/thing/id/${thing.id}`,
@@ -57,7 +53,6 @@ export default function Things() {
                         },
                       }
                     );
-                    //console.log(response);
                     triggerRe();
                   };
                   loadData();
